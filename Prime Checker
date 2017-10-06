@@ -13,7 +13,7 @@ namespace P06.Prime_Checker
             double num = double.Parse(Console.ReadLine());
             num = Math.Abs(num);
 
-            if (num == 0 || num == 1)
+            if (num == 0 || num == 1 || num == 4)
             {
                 Console.WriteLine("False");
             }
