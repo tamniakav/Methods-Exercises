@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace P06.Prime_Checker
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double num = double.Parse(Console.ReadLine());
+            num = Math.Abs(num);
+
+            if (num == 0 || num == 1)
+            {
+                Console.WriteLine("False");
+            }
+            else if (num == 2 || num == 3)
+            {
+                Console.WriteLine("True");
+            }
+            else
+            {
+                Console.WriteLine(FindingThePrimeNumber(num));
+            }
+        }
+
+        static bool FindingThePrimeNumber(double num)
+        {
+            num = Math.Sqrt(num);
+
+            int number = (int)num;
+            if (number % 2 == 0 || number % 5 == 0 || number % 3 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
