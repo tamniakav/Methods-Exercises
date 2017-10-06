@@ -1,0 +1,36 @@
+using System;
+
+namespace P05.Fibonacci_Numbers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            long n = long.Parse(Console.ReadLine());
+
+            if (n == 0 || n == 1)
+            {
+                Console.WriteLine(1);
+            }
+            else
+            {
+                Console.WriteLine(CalculateFibonacciNumber(n));
+            }
+
+        }
+
+        static long CalculateFibonacciNumber(long n)
+        {
+            long fibonacciNum = 1;
+            long newNum = 1;
+            long sum = 0;
+            for (int i = 2; i <= n; i++)
+            {
+                sum = fibonacciNum + newNum;
+                fibonacciNum = newNum;
+                newNum = sum;
+            }
+            return sum;
+        }
+    }
+}
