@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace P04.Numbers_in_Reversed_Order
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double num = double.Parse(Console.ReadLine());
+            string fullNum = num.ToString();
+
+            
+            string invertedNum = InvertingNumber(fullNum, num);
+
+            Console.WriteLine(invertedNum);
+        }
+
+        static string InvertingNumber(string fullNum, double num)
+        {
+
+            int countOfDigits = num.ToString().Length;
+            string allDigits = String.Empty;
+
+            for (int i = 0; i < countOfDigits; i++)
+            {
+                string output = fullNum.Substring(fullNum.Length - 1, 1);
+                fullNum = fullNum.Remove(fullNum.Length - 1);
+                allDigits += output;
+            }
+            return allDigits;
+        }
+    }
+}
