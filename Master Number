@@ -1,0 +1,96 @@
+using System;
+
+namespace P12.Master_Number
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                if (IsPalindrome(i) == true
+                && SumOfDigits(i) == true
+                && ContainsEvenDigit(i) == true)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+        static bool IsPalindrome(int number)
+        {
+            string str = number.ToString();
+
+            if (str.Length < 4 && str[0] == str[str.Length - 1])
+            {
+                return true;
+            }
+            else if (str.Length < 6 && str[0] == str[str.Length - 1] && str[1] == str[str.Length - 2])
+            {
+                return true;
+            }
+            else if (str.Length < 8 && str[0] == str[str.Length - 1] && str[1] == str[str.Length - 2] && str[2] == str[str.Length - 3])
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        static bool SumOfDigits(int number)
+        {
+            int length = number.ToString().Length;
+            int num = number;
+            int sum = 0;
+
+            for (int i = 0; i < length; i++)
+            {
+                int lastDigit = num % 10;
+                sum += lastDigit;
+                num /= 10;
+            }
+
+            if (sum % 7 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        static bool ContainsEvenDigit(int num)
+        {
+            int length = num.ToString().Length;
+
+            int number = num;
+            int evenCounter = 0;
+
+            for (int i = 0; i < length; i++)
+            {
+                int lastDigit = number % 10;
+
+                if (lastDigit % 2 == 0)
+                {
+                    evenCounter++;
+                }
+
+                number /= 10;
+            }
+
+            if (evenCounter > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
