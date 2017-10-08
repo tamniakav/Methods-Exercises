@@ -1,0 +1,75 @@
+using System;
+
+namespace P11.Geometry_Calculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string typeOfFigure = Console.ReadLine().ToLower();
+
+            if (typeOfFigure == "triangle")
+            {
+                double side = double.Parse(Console.ReadLine());
+                double height = double.Parse(Console.ReadLine());
+
+                Console.WriteLine($"{CalculatingTriangleArea(side, height):f2}");
+            }
+            else if (typeOfFigure == "square")
+            {
+                double side = double.Parse(Console.ReadLine());
+
+                Console.WriteLine($"{CalculatingSquareArea(side):f2}");
+            }
+            else if (typeOfFigure == "rectangle")
+            {
+                double width = double.Parse(Console.ReadLine());
+                double height = double.Parse(Console.ReadLine());
+
+                Console.WriteLine($"{CalculateRectangleArea(width, height):f2}");
+            }
+            else if (typeOfFigure == "circle")
+            {
+                double radius = double.Parse(Console.ReadLine());
+
+                Console.WriteLine($"{CalculateCircleArea(radius):f2}");
+            }
+        }
+
+        static double CalculateCircleArea(double radius)
+        {
+            double result = 0d;
+
+            result = Math.PI * (Math.Pow(radius, 2));
+
+            return result;
+        }
+
+        static double CalculateRectangleArea(double width, double height)
+        {
+            double result = 0d;
+
+            result = width * height;
+
+            return result;
+        }
+
+        static double CalculatingSquareArea(double side)
+        {
+            double result = 0d;
+
+            result = Math.Pow(side, 2);
+
+            return result;
+        }
+
+        static double CalculatingTriangleArea(double side, double height)
+        {
+            double result = 0d;
+
+            result = (side * height) * 0.5; 
+
+            return result;
+        }
+    }
+}
