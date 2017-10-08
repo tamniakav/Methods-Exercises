@@ -1,1 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace P10.Cube_Properties
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double side = double.Parse(Console.ReadLine());
+            string parameter = Console.ReadLine();
+
+            Console.WriteLine($"{CalculateParameter(side, parameter):f2}");
+        }
+
+        static double CalculateParameter(double side, string parameter)
+        {
+            double result = 0;
+
+            if (parameter == "face")
+            {
+                double faceDiagonal = 2 * (Math.Pow(side, 2));
+                result = Math.Sqrt(faceDiagonal);
+            }
+            else if (parameter == "space")
+            {
+                double spaceDiagonal = 3 * (Math.Pow(side, 2));
+                result = Math.Sqrt(spaceDiagonal);
+            }
+            else if (parameter == "volume")
+            {
+                result = Math.Pow(side, 3);
+            }
+            else if (parameter =="area")
+            {
+                result = 6 * (Math.Pow(side, 2));
+            }
+
+            return result;
+        }
+    }
+}
 
