@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace P14.Factorial_Trailing_Zeroes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+
+            CountingFactorial(number);
+        }
+
+        private static void CountingFactorial(int number)
+        {
+            BigInteger sum = 1;
+
+            for (int i = 1; i <= number; i++)
+            {
+                sum = i * sum;
+            }
+
+            Console.WriteLine(FindingTrailingZeroes(sum)); 
+        }
+
+        static int FindingTrailingZeroes(BigInteger sum)
+        {
+            string findingZeroes = sum.ToString();
+            BigInteger num = sum;
+            int count = 0;
+
+            for (long i = 0; i < findingZeroes.Length; i++)
+            {
+                BigInteger zero = num % 10;
+
+                if (zero == 0)
+                {
+                    count++;
+                }
+                else
+                {
+                    return count;
+                }
+
+                num /= 10;
+            }
+
+            return count;
+        }
+    }
+}
